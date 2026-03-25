@@ -1,84 +1,155 @@
-
-```markdown
-# Open Source Audit: LibreOffice
-
-## 📋 Project Overview
-This repository contains the complete capstone project for the Open Source Software course (CSE0002) at VIT Bhopal University. The project conducts a comprehensive audit of **LibreOffice Office Suite**, examining its origin story, licensing model (MPL 2.0 / LGPLv3+), philosophical foundations, Linux footprint, and its role within the Free and Open Source Software (FOSS) ecosystem.
-
-## 🎯 Project Objectives
-- Analyze the historical context and motivations behind LibreOffice's fork from OpenOffice.org
-- Examine the legal and ethical implications of MPL 2.0 and LGPLv3+ licensing
-- Document LibreOffice's installation, directory structure, and system integration on Linux
-- Map the FOSS dependencies and community governance structure
-- Compare LibreOffice against proprietary alternatives (Microsoft Office, Google Workspace)
-- Demonstrate practical Linux automation skills through five shell scripts
-
-## 📁 Repository Structure
-```
-oss-audit-24BCE11017/
-├── script1_system_identity.sh          # System information and LibreOffice version report
-├── script2_package_inspector.sh        # FOSS package verification with philosophy notes
-├── script3_disk_permission_auditor.sh  # Directory permissions and disk usage audit
-├── script4_log_analyzer.sh             # Log file analysis with keyword search
-├── script5_manifesto_generator.sh      # Interactive open-source philosophy generator
-├── README.md                           # Project documentation and setup instructions
-└── OSS_Audit_ArnabKumar_24BCE11017.pdf # Complete project report (12+ pages)
-```
-
-## 🛠️ Technical Requirements
-- **Operating System:** Ubuntu 22.04 LTS or any Debian-based Linux distribution
-- **Shell:** Bash 4.0+
-- **Software:** LibreOffice 7.x (for verification)
-- **Permissions:** Sudo access for log file analysis
-
-## 🚀 Quick Start
-```bash
-# Clone the repository
-git clone https://github.com/[username]/oss-audit-24BCE11017.git
-
-# Navigate to project directory
-cd oss-audit-24BCE11017
-
-# Make scripts executable
-chmod +x *.sh
-
-# Run the system identity report
-./script1_system_identity.sh
-```
-
-## 📊 Scripts Summary
-| Script | Purpose | Key Concepts Demonstrated |
-|--------|---------|--------------------------|
-| Script 1 | System Identity Report | Command substitution, variables, formatted output |
-| Script 2 | FOSS Package Inspector | Conditional logic, case statements, package management |
-| Script 3 | Disk Permission Auditor | For loops, file permissions, disk usage analysis |
-| Script 4 | Log File Analyzer | While-read loops, arrays, file I/O, error handling |
-| Script 5 | Manifesto Generator | Interactive input, file creation, string concatenation |
-
-## 🔍 Key Findings
-- **Origin:** LibreOffice emerged from a community revolt against Oracle's acquisition of Sun Microsystems in 2010
-- **License:** Hybrid MPL 2.0/LGPLv3+ ensures both openness and commercial viability
-- **Impact:** Used by governments worldwide (Germany, France, Brazil) for digital sovereignty
-- **Comparison:** LibreOffice offers superior privacy, zero cost, and full offline capability compared to proprietary alternatives
-
-## 👨‍🎓 Author
-**Arnab Kumar**  
-Registration Number: 24BCE11017  
-Course: CSE0002 — Open Source Software  
-Institution: VIT Bhopal University  
-Slot: D11  
-Date: 25 March 2026
-
-## 📚 References
-- [The Document Foundation](https://www.documentfoundation.org/)
-- [LibreOffice Official Site](https://www.libreoffice.org/)
-- [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/)
-- [GNU LGPL v3](https://www.gnu.org/licenses/lgpl-3.0.html)
-
-## 📄 License
-This project is created for educational purposes as part of the VIT Bhopal Open Source Software course. All scripts are freely available for learning and modification.
+# OSS Audit — LibreOffice
+**Student Name:** Arnab Kumar  
+**Registration Number:** 24BCE11017  
+**Course:** CSE0002 — Open Source Software | VIT Bhopal University  
+**Software Audited:** LibreOffice Office Suite (MPL 2.0 / LGPLv3+)  
+**Repository:** `oss-audit-24BCE11017`
 
 ---
-*"Standing on the shoulders of giants — contributing back to the open source ecosystem."*
+
+## About This Project
+
+This repository contains the five shell scripts for the Open Source Software Capstone Project — *The Open Source Audit*. The project audits **LibreOffice**, examining its origin story (community fork from OpenOffice.org in 2010 when Oracle acquired Sun Microsystems), its hybrid MPL 2.0 / LGPLv3+ license, philosophy, Linux footprint, FOSS ecosystem, and a comparison with proprietary alternatives (Microsoft Office and Google Workspace).
+
+---
+
+## Repository Contents
+
+| File | Description |
+|------|-------------|
+| `script1_system_identity.sh` | Displays system info: LibreOffice version, distro, kernel, uptime, user, and MPL 2.0 / LGPLv3+ license details |
+| `script2_package_inspector.sh` | Checks if a FOSS package is installed, shows version/metadata, and prints a philosophy note (case statement) |
+| `script3_disk_permission_auditor.sh` | Audits system directories and LibreOffice-specific paths: permissions, ownership, and disk usage using a for loop |
+| `script4_log_analyzer.sh` | Reads a log file line by line, counts keyword matches, and displays the last 5 matches |
+| `script5_manifesto_generator.sh` | Interactively generates and saves a personalised open-source philosophy statement |
+| `README.md` | This file |
+
+The project report PDF is submitted separately via the VITyarthi portal.
+
+---
+
+## Environment Requirements
+
+- **OS:** Ubuntu 22.04 LTS or any Debian-based Linux
+- **Shell:** Bash (version 4.0+)
+- **Dependencies:** `libreoffice`, `uname`, `whoami`, `uptime`, `dpkg`, `apt-cache`, `ls`, `du`, `grep`, `awk`, `cut`, `date` — install LibreOffice with `sudo apt install libreoffice`
+- **Permissions:** Script 4 may require `sudo` to read `/var/log/syslog`
+
+---
+
+## Setup Instructions
+
+### Step 1 — Clone the repository
+```bash
+git clone https://github.com/[your-github-username]/oss-audit-24BCE11017.git
+cd oss-audit-24BCE11017
 ```
 
+### Step 2 — Install LibreOffice (if not already installed)
+```bash
+sudo apt update && sudo apt install libreoffice
+libreoffice --version    # Confirm installation
+```
+
+### Step 3 — Make all scripts executable
+```bash
+chmod +x *.sh
+```
+
+---
+
+## Running Each Script
+
+### Script 1 — System Identity Report
+Displays system info and LibreOffice license details.
+```bash
+./script1_system_identity.sh
+```
+**Expected output:** LibreOffice version, distribution name, kernel, uptime, user info, date/time, and MPL 2.0 / LGPLv3+ license statement.
+
+---
+
+### Script 2 — FOSS Package Inspector
+Checks if a package is installed and prints a philosophy note.
+```bash
+# Inspect libreoffice (default)
+./script2_package_inspector.sh
+
+# Inspect specific LibreOffice components
+./script2_package_inspector.sh libreoffice-writer
+./script2_package_inspector.sh libreoffice-calc
+./script2_package_inspector.sh libreoffice-impress
+
+# Inspect other packages
+./script2_package_inspector.sh python3
+./script2_package_inspector.sh git
+```
+**Expected output:** Package install status, version, and a philosophy note about the package.
+
+---
+
+### Script 3 — Disk and Permission Auditor
+Audits system directories and LibreOffice-specific installation paths.
+```bash
+./script3_disk_permission_auditor.sh
+```
+**Expected output:** Formatted table of directories with permissions, owner, group, and size. Also checks `/usr/bin/libreoffice`, `/usr/lib/libreoffice`, `/usr/lib/libreoffice/program`, `/usr/share/libreoffice`, and `~/.config/libreoffice`.
+
+---
+
+### Script 4 — Log File Analyzer
+Reads a log file and counts keyword matches.
+```bash
+# Analyse syslog for 'libreoffice' entries (default)
+sudo ./script4_log_analyzer.sh /var/log/syslog libreoffice
+
+# Search for LibreOffice Snap updates
+sudo ./script4_log_analyzer.sh /var/log/syslog snap
+
+# Search for document conversion events
+sudo ./script4_log_analyzer.sh /var/log/syslog convert
+
+# Search for ODF-related events
+sudo ./script4_log_analyzer.sh /var/log/syslog odf
+```
+**Expected output:** Match count and the last 5 matching lines.
+
+> **Note:** May require sudo or `adm` group membership: `sudo usermod -aG adm $USER` (then log out and back in).
+
+---
+
+### Script 5 — Open Source Manifesto Generator
+Interactive — asks three questions and saves a personalised manifesto.
+```bash
+./script5_manifesto_generator.sh
+```
+**Follow the prompts:**
+1. Enter a tool you use every day (e.g., `LibreOffice`, `bash`, `git`)
+2. Enter one word for what document freedom means (e.g., `sovereignty`, `ownership`)
+3. Enter something you would build and share (e.g., `a college management system`)
+
+**Expected output:** A manifesto printed to the terminal and saved as `manifesto_[yourusername].txt`.
+
+---
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| `Permission denied` on script | Run `chmod +x scriptname.sh` |
+| `libreoffice: command not found` | Install with `sudo apt install libreoffice` |
+| Script 1 shows "LibreOffice not found" | LibreOffice may be installed as Snap — try `snap run libreoffice --version` |
+| LibreOffice crashes on launch | Reset user profile: `mv ~/.config/libreoffice ~/.config/libreoffice.bak` |
+| Log file not found (Script 4) | Script auto-detects fallbacks; or try `./script4_log_analyzer.sh /var/log/dpkg.log libreoffice` |
+| `dpkg: not found` (Script 2) | Replace `dpkg -l` with `rpm -qa` for RPM-based systems |
+| Script outputs nothing | Ensure Bash is your shell: `echo $SHELL` should show `/bin/bash` |
+
+---
+
+## License
+
+These scripts are written for educational purposes as part of the VIT Bhopal OSS course. They may be freely used and modified.
+
+---
+
+*VIT Bhopal University | CSE0002 — Open Source Software | Capstone Project*
